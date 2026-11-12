@@ -673,6 +673,47 @@
     @keyframes bend{from{transform:rotate(25deg) scale(.8,.7)}to{transform:rotate(58deg) scale(.55,.5)}}
     .smoke{position:absolute;bottom:13rem;width:.7rem;height:.7rem;margin-left:-.1rem;border-radius:50%;background:rgba(220,220,235,.55);filter:blur(3px);pointer-events:none;animation:sm 3s ease-out forwards}
     @keyframes sm{to{transform:translate(var(--sx),-5rem) scale(3.5);opacity:0}}
+  
+    /* special cake */
+    .cake{margin-bottom:1.6rem;animation:fade 1.2s both,bob 3.2s 1.2s ease-in-out infinite}
+    @keyframes bob{50%{transform:translateY(-5px)}}
+    .cake::before{content:"";position:absolute;left:-1.4rem;right:-1.4rem;bottom:-.9rem;height:1.2rem;border-radius:50%;background:linear-gradient(#ffe3ea,#e8929f);box-shadow:0 12px 22px rgba(0,0,0,.5),0 0 24px rgba(242,167,179,.4)}
+    .t1{background:linear-gradient(#ffc2cf,#ea7a95)}
+    .t2{background:linear-gradient(#fff0dc,#f6c6a4)}
+    .t3{background:linear-gradient(#e7d4ff,#b99be8)}
+    .icing::after{content:"";position:absolute;left:0;right:0;top:.55rem;height:.9rem;background:radial-gradient(circle at 9px 0,#fff6ee 8px,transparent 9px) 0 0/18px 100% repeat-x}
+    .t1::after{content:"";position:absolute;left:.5rem;right:.5rem;bottom:.35rem;height:.5rem;background:radial-gradient(circle,#fff 3px,transparent 4px) 0 0/14px 100% repeat-x}
+    .cmsg{position:absolute;left:0;right:0;top:1.55rem;text-align:center;color:#fff;font-size:1rem;text-shadow:0 1px 3px rgba(120,20,50,.6)}
+    .cname{position:absolute;left:0;right:0;top:1.35rem;text-align:center;color:#a83a58;font-size:1.05rem}
+    .spr{position:absolute;width:.34rem;height:.12rem;border-radius:2px;pointer-events:none}
+    .topp{position:absolute;font-size:1.4rem;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));animation:tp 2.4s ease-in-out infinite}
+    @keyframes tp{50%{transform:translateY(-3px) rotate(6deg)}}
+    .cheart{position:absolute;bottom:3rem;font-size:1rem;opacity:0;pointer-events:none;animation:ch 6s ease-in infinite}
+    @keyframes ch{15%{opacity:.95}to{opacity:0;transform:translateY(-9rem) translateX(.8rem) scale(1.3)}}
+    .pface{position:absolute;left:50%;bottom:.2rem;width:1.9rem;height:1.6rem;margin-left:-.95rem;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+    .pface i{position:absolute;display:block}
+    .pface .e{width:.7rem;height:.7rem;border-radius:50%;background:#222;top:-.25rem}
+    .pface .e.l{left:-.1rem}.pface .e.r{right:-.1rem}
+    .pface .ey{width:.32rem;height:.42rem;border-radius:50%;background:#222;top:.38rem}
+    .pface .ey.l{left:.3rem;transform:rotate(18deg)}.pface .ey.r{right:.3rem;transform:rotate(-18deg)}
+    .pface .ns{width:.3rem;height:.2rem;border-radius:50%;background:#222;left:50%;margin-left:-.15rem;top:.85rem}
+    .pface .bl{width:.35rem;height:.2rem;border-radius:50%;background:#ff9fb5;top:.95rem;opacity:.8}
+    .pface .bl.l{left:.05rem}.pface .bl.r{right:.05rem}
+  
+    /*plt removed*/ .plt-unused{position:absolute;left:0;right:0;bottom:-.88rem;text-align:center;font-size:.72rem;line-height:1.2rem;color:#a83a58;letter-spacing:.03em;pointer-events:none}
+  
+    /* 21st celebration */
+    #cel{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;padding:env(safe-area-inset-top,0px) 1rem env(safe-area-inset-bottom,0px);background:radial-gradient(circle at 50% 40%,rgba(90,20,45,.92),rgba(20,4,10,.96));opacity:0;transition:opacity .8s;text-align:center}
+    #cel.on{opacity:1}
+    #cel .ln{display:flex;flex-wrap:wrap;justify-content:center}
+    #cel .cl{display:inline-block;opacity:0;font-family:Pacifico,cursive;text-shadow:0 0 18px rgba(255,190,150,.8);animation:cpop .7s cubic-bezier(.2,1.6,.4,1) forwards}
+    #cel .sp{width:.6rem}
+    @keyframes cpop{0%{opacity:0;transform:translateY(40px) scale(.2) rotate(-20deg)}100%{opacity:1;transform:none}}
+    #cel .big{font-size:6rem;line-height:1.1;animation-name:cpop,glow;animation-duration:.7s,2s;animation-delay:inherit,1.6s;animation-iteration-count:1,infinite;animation-fill-mode:forwards,none}
+    @keyframes glow{50%{transform:scale(1.08);text-shadow:0 0 40px #ffd08a,0 0 70px #f2a7b3}}
+    #cel .hint{margin-top:1.4rem;font-size:.75rem;opacity:0;animation:cpop .6s 3.6s forwards;color:var(--gold)}
+    .fw{position:fixed;z-index:95;pointer-events:none;width:7px;height:7px;border-radius:50%;animation:fwb 1.1s ease-out forwards}
+    @keyframes fwb{to{transform:translate(var(--dx),var(--dy));opacity:0}}
   </style>
 </head>
 
@@ -775,13 +816,20 @@
       <div class="cake" id="cake">
         <div class="tier t1">
           <div class="icing"></div>
+          <span class="cmsg script">Happy Birthday 🎂</span>
         </div>
         <div class="tier t2">
           <div class="icing"></div>
+          <span class="cname script">Saranya 💕</span>
         </div>
         <div class="tier t3">
           <div class="icing"></div>
+          <div class="pface"><i class="e l"></i><i class="e r"></i><i class="ey l"></i><i class="ey r"></i><i class="ns"></i><i class="bl l"></i><i class="bl r"></i></div>
         </div>
+        <span class="topp" style="left:.2rem;bottom:4.5rem">🍓</span><span class="topp" style="right:.2rem;bottom:4.5rem">🍓</span>
+        <span class="topp" style="left:2.2rem;bottom:8.2rem">🍒</span><span class="topp" style="right:2.2rem;bottom:8.2rem">🍒</span>
+        <span class="topp" style="left:5.6rem;bottom:13.6rem;font-size:1.1rem">🎀</span>
+        <span class="cheart" style="left:-.5rem;animation-delay:0s">💗</span><span class="cheart" style="left:16rem;animation-delay:1.6s">💖</span><span class="cheart" style="left:1rem;animation-delay:3.2s">✨</span><span class="cheart" style="left:14rem;animation-delay:4.8s">💗</span>
         <div class="candle" style="left:5.4rem">
           <div class="flame"></div>
         </div>
@@ -962,6 +1010,32 @@
       const cake = $('#cake'); cake.classList.remove('blowing');
       [5.4, 7.2, 9].forEach((l, k) => { for (let j = 0; j < 3; j++) { const m = document.createElement('span'); m.className = 'smoke'; m.style.left = (l + .1) + 'rem'; m.style.animationDelay = (j * .35 + k * .1) + 's'; m.style.setProperty('--sx', (Math.random() * 3 + .5) + 'rem'); cake.appendChild(m); setTimeout(() => m.remove(), 4200) } })
     }
+  
+    /* cake sprinkles */
+    (function () {
+      const sc = ['#ff6b9d', '#ffc15e', '#8ec5ff', '#fff', '#7ee0b0'];
+      document.querySelectorAll('.cake .tier').forEach(t => { for (let i = 0; i < 14; i++) { const d = document.createElement('span'); d.className = 'spr'; d.style.left = (6 + Math.random() * 86) + '%'; d.style.top = (42 + Math.random() * 34) + '%'; d.style.background = sc[i % sc.length]; d.style.transform = 'rotate(' + Math.floor(Math.random() * 180) + 'deg)'; t.appendChild(d) } })
+    })();
+  
+    /* 21st birthday celebration after blowing */
+    function celebrate() {
+      const o = document.createElement('div'); o.id = 'cel';
+      const cs = ['#ffd08a', '#ff8fb1', '#fff3ee', '#f2a7b3', '#ffc15e'];
+      let k = 0;
+      const line = (t, size, cls) => '<div class="ln" style="font-size:' + size + '">' + [...t].map(ch => ch === ' ' ? '<span class="sp"></span>' : '<span class="cl ' + (cls || '') + '" style="color:' + cs[k % cs.length] + ';animation-delay:' + (0.25 + (k++) * .07).toFixed(2) + 's">' + ch + '</span>').join('') + '</div>';
+      o.innerHTML = line('Happy', '2.8rem') + line('21st', '', 'big') + line('Birthday', '2.8rem') + line('My Girl 💖', '2rem') + '<div class="hint">tap to continue ✨</div>';
+      document.body.appendChild(o); requestAnimationFrame(() => o.classList.add('on'));
+      let alive = true;
+      const close = () => { if (!alive) return; alive = false; o.classList.remove('on'); setTimeout(() => o.remove(), 900) };
+      o.addEventListener('click', close); setTimeout(close, 12000);
+      const burst = () => {
+        if (!alive) return; const x = 10 + Math.random() * 80, y = 12 + Math.random() * 50, col = cs[Math.floor(Math.random() * cs.length)];
+        for (let i = 0; i < 22; i++) { const f = document.createElement('span'); f.className = 'fw'; const a = i / 22 * Math.PI * 2, d = 70 + Math.random() * 50; f.style.left = x + 'vw'; f.style.top = y + 'vh'; f.style.background = col; f.style.boxShadow = '0 0 8px ' + col; f.style.setProperty('--dx', Math.cos(a) * d + 'px'); f.style.setProperty('--dy', Math.sin(a) * d + 'px'); document.body.appendChild(f); setTimeout(() => f.remove(), 1200) }
+      };
+      for (let i = 0; i < 9; i++)setTimeout(burst, 400 + i * 800);
+      balloons(14);
+    }
+    $('#blow').addEventListener('click', () => setTimeout(celebrate, 1700));
   </script>
 </body>
 
